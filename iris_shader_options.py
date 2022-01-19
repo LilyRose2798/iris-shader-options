@@ -4,10 +4,14 @@ from typing import Literal, NamedTuple, Union
 from dataclasses import dataclass
 from zipfile import Path as ZipPath
 from pathlib import Path
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 from sys import exit
 
-ArgNamespace = NamedTuple("ArgNamespace", [("language_code", str), ("output_path", Union[Path, None, Literal[False]]), ("input_path", Path)])
+@dataclass
+class Args(Namespace):
+    language_code: str
+    output_path: Union[Path, None, Literal[False]]
+    input_path: Path
 
 def path_arg(path: str) -> Path:
     return Path(path)
@@ -83,7 +87,7 @@ def main() -> None:
     parser.add_argument("-l", "--lang", metavar="language_code", dest="language_code", default="en_US", help="The language code to use")
     parser.add_argument("-o", "--output", metavar="output_path", dest="output_path", nargs="?", const=None, default=False, type=path_arg, help="The path to the output file or directory")
     parser.add_argument("input_path", type=path_arg, help="The path to the Iris shader options file or Minecraft installation directory")
-    args: ArgNamespace = parser.parse_args()
+    args: Args = parser.parse_args()
     if args.input_path.is_dir():
         for shader_options_path in get_shaderpacks_path(args.input_path).glob("*.txt"):
             try:
