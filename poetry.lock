@@ -1,0 +1,18 @@
+[[package]]
+name = "pyjavaproperties"
+version = "0.7"
+description = "Python replacement for java.util.Properties."
+category = "main"
+optional = false
+python-versions = "*"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.10"
+content-hash = "94be65253fcd7ce32ef7bebafe1f5083a41052c1ed32ee1b6845a2614d3860db"
+
+[metadata.files]
+pyjavaproperties = [
+    {file = "pyjavaproperties-0.7-py3-none-any.whl", hash = "sha256:4bd540d0624190a7f749210920e67dbeb125b220fc5802805077958d8e55f8ed"},
+    {file = "pyjavaproperties-0.7.tar.gz", hash = "sha256:adb59893874ee14f12f9e9054fdd3e9383eb0071c22c596a377bf7585ef0ea85"},
+]

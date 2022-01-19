@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "iris-shader-options"
+version = "0.1.0"
+description = "Parse Iris shader options files and output in a human readable format"
+authors = ["LilyRose2798"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyjavaproperties = "^0.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
