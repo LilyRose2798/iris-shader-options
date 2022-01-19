@@ -4,7 +4,7 @@ from typing import Literal, NamedTuple, Union
 from dataclasses import dataclass
 from zipfile import Path as ZipPath
 from pathlib import Path
-import argparse
+from argparse import ArgumentParser
 
 def get_shaderpacks_path(input_path: Path) -> Path:
     if input_path.name == "shaderpacks":
@@ -76,7 +76,7 @@ def path_arg(path: str) -> Path:
     return Path(path)
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Parse Iris shader options files and output in a human readable format")
+    parser = ArgumentParser(description="Parse Iris shader options files and output in a human readable format")
     parser.add_argument("-l", "--lang", metavar="language_code", dest="language_code", default="en_US", help="The language code to use")
     parser.add_argument("-o", "--output", metavar="output_path", dest="output_path", nargs="?", const=None, default=False, type=path_arg, help="The path to the output file or directory")
     parser.add_argument("input_path", type=path_arg, help="The path to the Iris shader options file or Minecraft installation directory")
