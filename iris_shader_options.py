@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from pyjavaproperties import Properties
-from typing import Literal, NamedTuple, Union
+from typing import Literal, Union
 from dataclasses import dataclass
 from zipfile import Path as ZipPath
 from pathlib import Path
