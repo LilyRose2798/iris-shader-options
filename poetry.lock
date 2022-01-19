@@ -8,8 +8,8 @@ python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "94be65253fcd7ce32ef7bebafe1f5083a41052c1ed32ee1b6845a2614d3860db"
+python-versions = "^3.9"
+content-hash = "360268b780c03c45a85cc3717adbdefc18aa29f47912262d0a1f9fc164ad2bb7"
 
 [metadata.files]
 pyjavaproperties = [
