@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from zipfile import Path as ZipPath
 from pathlib import Path
 from argparse import ArgumentParser
+from sys import exit
 
 def get_shaderpacks_path(input_path: Path) -> Path:
     if input_path.name == "shaderpacks":
@@ -95,7 +96,7 @@ def main() -> None:
                     Path(args.output_path, f"{shader_options_path.stem}_readable.txt").write_text(output)
             except ValueError as err:
                 print(err)
-    else:
+    elif args.input_path.is_file():
         try:
             output = get_shader_options_readable(args.language_code, args.input_path)
             if args.output_path is False:
@@ -106,6 +107,10 @@ def main() -> None:
                 args.output_path.write_text(output)
         except ValueError as err:
             print(err)
+            exit(1)
+    else:
+        print(f"Invalid input path [{args.input_path}]")
+        exit(1)
 
 if __name__ == "__main__":
     main()
