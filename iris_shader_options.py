@@ -96,13 +96,16 @@ def main() -> None:
             except ValueError as err:
                 print(err)
     else:
-        output = get_shader_options_readable(args.language_code, args.input_path)
-        if args.output_path is False:
-            print(output)
-        elif args.output_path is None:
-            args.input_path.with_stem(f"{args.input_path.stem}_readable").write_text(output)
-        else:
-            args.output_path.write_text(output)
+        try:
+            output = get_shader_options_readable(args.language_code, args.input_path)
+            if args.output_path is False:
+                print(output)
+            elif args.output_path is None:
+                args.input_path.with_stem(f"{args.input_path.stem}_readable").write_text(output)
+            else:
+                args.output_path.write_text(output)
+        except ValueError as err:
+            print(err)
 
 if __name__ == "__main__":
     main()
